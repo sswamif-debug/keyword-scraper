@@ -16,7 +16,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // ═══ GITHUB GIST CONFIG (for data persistence) ═══
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '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';
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '';
 let GIST_ID = process.env.GIST_ID || ''; // Will create on first save
 
 // ═══ STATE ═══

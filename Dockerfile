@@ -1,17 +1,12 @@
-FROM mcr.microsoft.com/playwright:v1.52.0-noble
+FROM mcr.microsoft.com/playwright:v1.42.0-jammy
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm ci --ignore-scripts
+COPY package.json ./
+RUN npm install --production
 
 COPY server.js ./
 COPY already_done.json ./
-
-# Force Playwright browsers into a shared location accessible by all users
-ENV PLAYWRIGHT_BROWSERS_PATH="/opt/playwright-browsers"
-RUN npx playwright install --with-deps chromium \
-    && chmod -R o+rx /opt/playwright-browsers
 
 EXPOSE 3000
 CMD ["node", "server.js"]

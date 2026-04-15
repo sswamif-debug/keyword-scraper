@@ -9,7 +9,7 @@
 // ═══════════════════════════════════════════════════════════════
 
 const express = require('express');
-const { chromium } = require('playwright');
+const { chromium } = require('playwright-core');
 const https = require('https');
 
 const app = express();

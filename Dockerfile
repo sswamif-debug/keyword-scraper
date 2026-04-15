@@ -1,12 +1,9 @@
-FROM node:20
+FROM mcr.microsoft.com/playwright:v1.52.0-noble
 
 WORKDIR /app
 
 COPY package.json ./
-RUN npm install --production
-
-# Install Chromium + all system dependencies in one command
-RUN npx playwright install --with-deps chromium
+RUN npm install --production --ignore-scripts
 
 COPY server.js ./
 COPY already_done.json ./
